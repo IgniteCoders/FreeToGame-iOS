@@ -7,12 +7,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
     
     var gameList: [Game] = []
+    var originalGameList: [Game] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +21,14 @@ class MainViewController: UIViewController, UITableViewDataSource {
         
         tableView.dataSource = self
         
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Filter games..."
+        navigationItem.searchController = searchController
+        
         Task {
-            gameList = await GameService.getGamesList()
+            originalGameList = await GameService.getGamesList()
+            gameList = originalGameList
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -40,5 +47,20 @@ class MainViewController: UIViewController, UITableViewDataSource {
         return cell
     }
 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if !searchText.isEmpty {
+            gameList = originalGameList.filter { game in
+                game.title.lowercased().contains(searchText.lowercased())
+            }
+        } else {
+            gameList = originalGameList
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        gameList = originalGameList
+        tableView.reloadData()
+    }
 }
 

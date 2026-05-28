@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PXz-4a-b3f">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
@@ -8,7 +8,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="SPQ-Ip-tJc">
+            <objects>
+                <navigationController id="PXz-4a-b3f" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="84Z-9I-9Ac">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ueh-Gr-aDS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rNN-ea-Od2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-819" y="4"/>
+        </scene>
+        <!--FreeToGame-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="FreeToGame" customModuleProvider="target" sceneMemberID="viewController">
@@ -43,6 +59,7 @@
                                         <connections>
                                             <outlet property="thumbnailImageView" destination="cyd-pO-BDD" id="6rl-Tu-tIW"/>
                                             <outlet property="titleLabel" destination="8fJ-Oj-8of" id="RyA-ey-0WI"/>
+                                            <segue destination="z0K-yT-h3Q" kind="show" id="dPV-yD-rKg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -57,6 +74,7 @@
                             <constraint firstItem="aaB-QE-Gz4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Xcg-s4-dL0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="FreeToGame" id="OwO-Ya-8mq"/>
                     <connections>
                         <outlet property="tableView" destination="aaB-QE-Gz4" id="Eii-CQ-OJQ"/>
                     </connections>
@@ -64,6 +82,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="84.732824427480907" y="3.5211267605633805"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="AJy-tr-D0P">
+            <objects>
+                <viewController id="z0K-yT-h3Q" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EqM-Od-ffd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nJu-fl-e7o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail" id="fGu-Eh-nGm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHd-Ji-7e4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="987" y="4"/>
         </scene>
     </scenes>
     <resources>
