@@ -62,7 +62,11 @@ class GameViewCell: UITableViewCell {
         // Configure the view for the selected state
         contentView.backgroundColor = .systemBackground
         
-        selectionView.backgroundColor = selected ? .separator : .clear
+        let changes = {
+            self.selectionView.backgroundColor = selected ? .separator : .clear
+        }
+        
+        UIView.animate(withDuration: 0.25, animations: changes)
     }
 
 }

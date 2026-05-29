@@ -62,5 +62,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UISearchBarDe
         gameList = originalGameList
         tableView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailViewController = segue.destination as! DetailViewController
+        let indexPath = tableView.indexPathForSelectedRow!
+        detailViewController.game = gameList[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
