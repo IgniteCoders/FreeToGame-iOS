@@ -10,5 +10,13 @@ import Foundation
 struct Game : Codable {
     let id: Int
     let title: String
+    let shortDescription: String
     let thumbnail: String
+    let genre: String
+    let platform: String
+    
+    enum CodingKeys : String, CodingKey {
+        case id, title, thumbnail, genre, platform
+        case shortDescription = "short_description"
+    }
 }
